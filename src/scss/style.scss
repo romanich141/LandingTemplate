@@ -1,0 +1,34 @@
+@import "slicktheme", "slick", "media-queries", "header", "slider", "about",
+  "register", "footer";
+
+body {
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+article {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.btn {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(0, 0, 0, 0);
+}

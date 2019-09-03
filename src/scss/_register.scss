@@ -1,0 +1,139 @@
+$select-background: rgb(245, 245, 245);
+$paddingSelect: 17px;
+$paddingInput: 17px;
+$colorInForm: #555555;
+$fontSizeInput: 14px;
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/src/img/register.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Roboto Thin", sans-serif;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 460px;
+    width: 100%;
+    padding: 2em 1em;
+    background-color: #ffffff;
+    input,
+    select {
+      display: flex;
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+      font-family: inherit;
+      font-size: $fontSizeInput;
+      border: none;
+      border-radius: 3px;
+      background-color: rgb(245, 245, 245);
+      box-shadow: inset 0px 0.1px 0px 0px rgba(0, 0, 0, 0.2);
+      padding: 17px;
+      margin-bottom: 10px;
+      color: $colorInForm;
+    }
+    .select-hidden {
+      display: none;
+      visibility: hidden;
+      padding-right: 10px;
+    }
+    .select {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      font-size: $fontSizeInput;
+      color: $colorInForm;
+      width: 100%;
+      padding: $paddingSelect;
+      max-width: 300px;
+    }
+    .select-styled {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      padding: $paddingSelect;
+      height: 50px;
+      background-color: $select-background;
+      transition: all 0.2s ease-in;
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 7px solid transparent;
+        border-color: $colorInForm transparent transparent transparent;
+        position: absolute;
+        top: calc(100% / 2);
+        right: 10px;
+      }
+      &:hover {
+        background-color: darken($select-background, 2);
+      }
+      &:active,
+      &.active {
+        background-color: darken($select-background, 5);
+        &:after {
+          top: calc(50% / 2);
+          border-color: transparent transparent $colorInForm transparent;
+        }
+      }
+    }
+    .select-options::-webkit-scrollbar {
+      width: 5px;
+      background-color: #dddddd;
+    }
+    .select-options::-webkit-scrollbar-thumb {
+      border-width: 1px 1px 1px 2px;
+      border-radius: 15px;
+      background-color: #555555;
+    }
+    .select-options {
+      display: none;
+      position: absolute;
+      top: calc(100% + 16px);
+      right: 0;
+      left: 0;
+      z-index: 999;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: #ffffff;
+      max-height: 100px;
+      overflow-y: auto;
+      li {
+        margin: 0;
+        padding: 12px 0;
+        text-indent: 15px;
+        border-top: 1px solid darken($select-background, 10);
+        transition: all 0.15s ease-in;
+        &:hover {
+          color: $select-background;
+          background: $colorInForm;
+        }
+        &[rel="hide"] {
+          display: none;
+        }
+      }
+    }
+  }
+  .form-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 0.68em;
+    color: #555555;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .register {
+    .form-title {
+      font-size: 25px;
+    }
+  }
+}
